@@ -1,11 +1,10 @@
 module ProductHelper
 
-  def self.get_product_list(product, is_bookmarked = 0)
+  def self.get_product_list product
       type_list = []
       price_list = []
       product_hash = Hash.new
       product_hash[:product_id] = product.product_id
-      product_hash[:is_bookmarked] = is_bookmarked
       product_hash[:product_name] = product.product_name
       product_hash[:product_description] = product.product_description
       product_hash[:link] = product.link

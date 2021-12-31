@@ -1,24 +1,15 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import React from 'react';
-// import App from './App';
-// import {createMemoryHistory} from "history";
-// import {Router} from "react-router-dom";
-// import { render, fireEvent, screen } from '../../common/test-utils'
-
-// jest.mock("firebase/firestore", () => {
-//     return {
-//         getFirestore: jest.fn(),
-//     };
-// });
-
+import { render } from '@testing-library/react';
+import App from './App';
 
 test('renders text', () => {
-  // const history = createMemoryHistory()
-  // history.push('/')
-  // render(
-  //   <Router history={history}>
-  //     <App />
-  //   </Router>,
-  // )
-  //
-  // expect(screen.getByText(/feeling/i)).toBeInTheDocument()
+  const { getByText } = render(
+      <App />
+  );
+
+  expect(getByText(/Feeling/i)).toBeDefined();
 });

@@ -64,8 +64,6 @@ module Fern
 
     # Fix for Heroku deploy
     config.assets.initialize_on_precompile = false
-    config.api_only = true
-    config.middleware.use ActionDispatch::Cookies
-    config.middleware.use ActionDispatch::Session::CookieStore
+
   end
 end

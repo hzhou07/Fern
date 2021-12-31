@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def get_limit_value(limit)
+  def get_limit_value limit
     if limit.nil?
       return 50
     else
@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def get_offset_value(offset)
+  def get_offset_value offset
     if offset.nil?
       return 0
     else
@@ -30,9 +30,6 @@ class ApplicationController < ActionController::Base
 
 
 
-
-
-
   def logged_in?
     session_user = session[:user_id]
     # p request.headers[:idToken]
@@ -41,10 +38,6 @@ class ApplicationController < ActionController::Base
     # p firebase_response.inspect
     unless error_code.to_s == "200"
       return false
-    end
-    if session[:user_id].nil?
-      firebase_response = JSON.parse(firebase_response)
-      session[:user_id] = firebase_response["users"][0]['localId']
     end
     return true
     # firebase_response = JSON.parse(firebase_response)
